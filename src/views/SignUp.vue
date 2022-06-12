@@ -1,0 +1,16 @@
+<template>
+  <div>
+    this is a test
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'SignUp',
+  props: {
+  }
+}
+</script>
+
+<style scoped>
+</style>
