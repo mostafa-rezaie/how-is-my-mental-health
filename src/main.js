@@ -12,11 +12,11 @@ import '@/assets/css/home.css'
 // font awesome
 import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
 import {library} from '@fortawesome/fontawesome-svg-core'
-import {faBrain,faNetworkWired,faUser,faCheck,faLock,faPiggyBank,faUserClock,faHandshake} from '@fortawesome/free-solid-svg-icons'
+import {faBrain,faNetworkWired,faUser,faCheck,faLock,faPiggyBank,faUserClock,faHandshake,faRightLong} from '@fortawesome/free-solid-svg-icons'
 import {faGithub, faFacebook, faReddit, faInstagram} from '@fortawesome/free-brands-svg-icons'
 // library.add(fas);
 library.add(faGithub, faFacebook, faReddit, faInstagram);
-library.add(faBrain,faNetworkWired,faUser,faCheck,faLock,faPiggyBank,faUserClock,faHandshake)
+library.add(faBrain,faNetworkWired,faUser,faCheck,faLock,faPiggyBank,faUserClock,faHandshake,faRightLong)
 Vue.component('fas', FontAwesomeIcon)
 
 Vue.config.productionTip = false

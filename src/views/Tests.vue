@@ -9,41 +9,43 @@
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias amet aperiam aspernatur at beatae consequuntur
       dicta maiores nesciunt quisquam unde.
     </div>
-    <div class="card-list">
-      <CardTest test-name="GHQ"
-                test-description="
+      <div class="card-list">
+    <router-link :to="{name:'ghqtest'}">
+        <CardTest test-name="GHQ"
+                  test-description="
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias amet
                 aperiam aspernatur abeatae consequuntur dicta maiores nesciunt quisquam unde."
-                num-of-questions=" 90"
-                algorithms=" SVM, Machine learning"
+                  num-of-questions=" 90"
+                  algorithms=" SVM, Machine learning"
 
-      />
-      <CardTest test-name="CHARACTER STRENGTHS"
-                test-description="
+        />
+    </router-link>
+    <CardTest test-name="CHARACTER STRENGTHS"
+              test-description="
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias amet
                 aperiam aspernatur abeatae consequuntur dicta maiores nesciunt quisquam unde."
-                num-of-questions=" 90"
-                algorithms=" SVM, Machine learning"
+              num-of-questions=" 90"
+              algorithms=" SVM, Machine learning"
 
-      />
-      <CardTest test-name="HUMOR STYLES"
-                test-description="
+    />
+    <CardTest test-name="HUMOR STYLES"
+              test-description="
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias amet
                 aperiam aspernatur abeatae consequuntur dicta maiores nesciunt quisquam unde."
-                num-of-questions=" 90"
-                algorithms=" SVM, Machine learning"
+              num-of-questions=" 90"
+              algorithms=" SVM, Machine learning"
 
-      />
-      <CardTest test-name="BIG FIVE PERSONALITY"
-                test-description="
+    />
+    <CardTest test-name="BIG FIVE PERSONALITY"
+              test-description="
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias amet
                 aperiam aspernatur abeatae consequuntur dicta maiores nesciunt quisquam unde."
-                num-of-questions=" 90"
-                algorithms=" SVM, Machine learning"
+              num-of-questions=" 90"
+              algorithms=" SVM, Machine learning"
 
-      />
+    />
 
-    </div>
+  </div>
   </div>
 </template>
 
@@ -74,8 +76,8 @@ export default {
   padding: 3rem;
 }
 
-.card-list div {
-  width: 25%;
+.card-list a div {
+  width: 100%;
 }
 
 .card-list :not(:first-child) {
