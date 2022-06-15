@@ -73,7 +73,7 @@ export default {
   margin-left: 2rem;
 }
 .vertical-line{
-  border: 3px #f1b139 solid;
+  border-left: 5px #f1b139 solid;
   min-height: 200px;
   width: 0;
   position: absolute;
