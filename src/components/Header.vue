@@ -4,12 +4,12 @@
       <div class="logo">Logo</div>
       <div class="links">
         <router-link to="/">Home</router-link>
-        <router-link to="/Tests">Tests</router-link>
-        <router-link to="/About-us">About</router-link>
+        <router-link to="/tests">Tests</router-link>
+        <router-link to="/about-us">About</router-link>
       </div>
       <div class="login-container">
-        <router-link to="/Login" class="login">Login</router-link>
-        <router-link to="/Sign-up" class="sign-up">Sign Up</router-link>
+        <router-link to="/login" class="login">Login</router-link>
+        <router-link to="/sign-up" class="sign-up">Sign Up</router-link>
 
       </div>
     </nav>
