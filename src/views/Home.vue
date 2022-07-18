@@ -9,6 +9,7 @@
       </div>
       <div class="button-container mt-8 flex max-w-5 m-auto justify-around">
         <button class="test-btn">Take a Test!</button>
+        <div>test</div>
         <button class="login-btn">Login</button>
       </div>
     </div>
