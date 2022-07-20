@@ -13,29 +13,24 @@
       "
     >
       <div class="circle"></div>
-      <div class="card flex flex-col items-center min-h-20">
+      <div class="card flex flex-col items-center ">
         <div class="logo text-white text-3xl font-bold mt-5">
-          <span class="text-sec-2">Company</span> Logo
+          <span>Forget Password ?</span>
         </div>
-        <div class="inputs mb-10 mt-10">
+
+        <div class="text-sm text-white font-light mt-3">
+          Enter your e-mail address to receive a reset link.
+        </div>
+
+        <div class="inputs mb-7 mt-7">
           <user-input
-            place-holder="Username"
-            input-name="username"
-          ></user-input>
-          <user-input
-            place-holder="Password"
-            input-name="password"
-            class="mt-3"
+            place-holder="email@email.com"
+            input-name="email"
           ></user-input>
         </div>
-        <div class="bottom-section">
-          <div class="btn-container mb-5">
-            <button class="btn">Login!</button>
-          </div>
-          <div class="forget-pass mb-5 text-center text-xs">
-            <router-link class="forget-pass-link" to="/forget-pass"
-              >Forget Password?</router-link
-            >
+        <div class="bottom-section ">
+          <div class="btn-container ">
+            <button class="btn">Send verification code</button>
           </div>
         </div>
       </div>
@@ -69,6 +64,8 @@ export default {
   backdrop-filter: blur(5px);
   border-radius: 10px;
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.35);
+  min-height: 16rem;
+  min-width: 25rem;
 }
 
 .circle {

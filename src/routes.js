@@ -1,6 +1,7 @@
 import Home from './views/Home'
 import Login from './views/Login'
 import SignUp from './views/SignUp'
+import ForgetPassword from './views/ForgetPassword'
 import AboutUs from './views/AboutUs'
 import Tests from './views/Tests'
 import TakeTest from './views/TakeTest'
@@ -10,6 +11,7 @@ export const routes = [
     {path: '', component: Home},
     {path: '/login', component: Login},
     {path: '/sign-up', component: SignUp},
+    {path: '/forget-pass', component: ForgetPassword},
     {path: '/about-us', component: AboutUs},
     {path: '/tests', component: Tests},
     {
