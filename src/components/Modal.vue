@@ -1,6 +1,6 @@
 <template>
   <div class="modal" v-show="getModalState">
-    <div class="modal-content">
+    <div class="modal-content font-bold text-xl">
       <p>You are about to take the {{ testName }} test</p>
       <p>
         This test take about {{ testDuration }} minutes with
