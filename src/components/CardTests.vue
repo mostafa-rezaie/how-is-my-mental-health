@@ -16,7 +16,7 @@ export default {
   props: {
     testName: String,
     testDescription: String,
-    numOfQuestions: Number,
+    numOfQuestions: String,
     algorithms: String,
 
   }
@@ -25,6 +25,7 @@ export default {
 
 <style scoped>
 .card {
+  cursor: pointer;
   position: relative;
   flex-direction: column;
   height: 350px;
