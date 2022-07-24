@@ -18,28 +18,33 @@
           <span class="text-sec-2">Company</span> Logo
         </div>
         <div class="inputs w-2/4 mb-10 mt-10">
-          <user-input place-holder="Name" input-name="name"></user-input>
           <user-input
-            place-holder="Username"
+            place-holder="Name"
             input-name="username"
+            v-model="signUpData.username"
           ></user-input>
           <user-input
             place-holder="Email@email.com"
             input-name="email"
+            v-model="signUpData.email"
           ></user-input>
           <user-input
             place-holder="Password"
             input-name="password"
+            inputType="password"
+            v-model="signUpData.password"
           ></user-input>
           <user-input
             place-holder="Re-enter Password"
             input-name="password2"
+            inputType="password"
+            v-model="signUpData.password2"
           ></user-input>
-          <user-input-select />
-          <input-date/>
+          <user-input-select @change="onChange" />
+          <input-date v-model="signUpData.date_of_birth" />
         </div>
         <div class="btn-container mb-10">
-          <button class="login-btn">Sign Up</button>
+          <button class="login-btn" @click="signUpUser">Sign Up</button>
         </div>
       </div>
     </div>
@@ -51,6 +56,7 @@ import Header from "../components/Header";
 import UserInput from "../components/UserInput";
 import UserInputSelect from "../components/UserInputSelect";
 import InputDate from "../components/InputDate";
+import axios from "axios";
 
 export default {
   name: "SignUp",
@@ -60,6 +66,55 @@ export default {
     UserInput,
     UserInputSelect,
     InputDate,
+  },
+  data() {
+    return {
+      signUpData: {
+        email: "",
+        password: "",
+        username: "",
+        password2: "",
+        gender: "",
+        date_of_birth: "",
+      },
+      IsAuth: true,
+    };
+  },
+  methods: {
+    onChange(ev) {
+      if (ev) {
+        console.log(ev);
+      }
+      this.signUpData.gender = ev;
+    },
+    async signUpUser() {
+      console.log("hello");
+      const options = {
+        url: "http://192.168.1.9:8000/profile/sign-up",
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json;charset=UTF-8",
+        },
+        data: this.signUpData
+      };
+      axios(options)
+        // .then((res) => res.data)
+        .then((res) => {
+          console.log(res);
+          if (res.status==201){
+            this.$router.push('/login')
+          }
+        } )
+        .catch((error) => error.response.data)
+        .then(res=>console.log(res));
+      // var interval = setInterval(() => {
+      //   if (localStorage.token) {
+      //     this.$router.push("/");
+      //     clearInterval(interval);
+      //   }
+      // }, 1000);
+    },
   },
 };
 </script>
