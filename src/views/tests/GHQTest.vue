@@ -5,6 +5,7 @@
         <br>
         {{ question.questionText }}
         <div class="radio-group">
+          <p>this is the GHQ test</p>
           <label class="radio-container">
             <input type="radio" value="1" :name="getName(question.questionNumber)" @change="onChange($event)">
             <span class="checkmark"></span>
