@@ -21,16 +21,20 @@
           <user-input
             place-holder="Username"
             input-name="username"
+            input-type="text"
+            v-model="email"
           ></user-input>
           <user-input
             place-holder="Password"
             input-name="password"
+            input-type="password"
+            v-model="password"
             class="mt-3"
           ></user-input>
         </div>
         <div class="bottom-section">
           <div class="btn-container mb-5">
-            <button class="btn">Login!</button>
+            <button class="btn" @click="loginUser">Login!</button>
           </div>
           <div class="forget-pass mb-5 text-center text-xs">
             <router-link class="forget-pass-link" to="/forget-pass"
@@ -46,6 +50,7 @@
 <script>
 import Header from "../components/Header";
 import UserInput from "../components/UserInput";
+import axios from "axios";
 
 export default {
   name: "Login",
@@ -53,6 +58,42 @@ export default {
   components: {
     Header,
     UserInput,
+  },
+  data() {
+    return {
+      email: "",
+      password: "",
+      IsAuth: true,
+    };
+  },
+  methods: {
+    async loginUser() {
+      console.log("hello");
+      const options = {
+        url: "http://192.168.1.9:8000/profile/login",
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json;charset=UTF-8",
+        },
+        data: {
+          email: this.email,
+          password: this.password,
+        },
+      };
+      // axios(options).then((res) => console.log(res.data));
+      axios(options)
+        .then((res) => res.data)
+        .then((res) => {
+          localStorage.token = res.token;
+        });
+        var interval = setInterval(() => {
+          if (localStorage.token){
+            this.$router.push('/')
+            clearInterval(interval)
+          }
+        }, 1000);
+    },
   },
 };
 </script>

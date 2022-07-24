@@ -18,6 +18,8 @@ import {faGithub, faFacebook, faReddit, faInstagram} from '@fortawesome/free-bra
 library.add(faGithub, faFacebook, faReddit, faInstagram);
 library.add(faBrain,faNetworkWired,faUser,faCheck,faLock,faPiggyBank,faUserClock,faHandshake,faRightLong)
 Vue.component('fas', FontAwesomeIcon)
+// axios
+import axios from 'axios'
 
 Vue.config.productionTip = false
 
@@ -29,5 +31,6 @@ const router = new VueRouter({
 
 new Vue({
     render: h => h(App),
-    router
+    router,
+    axios
 }).$mount('#app')

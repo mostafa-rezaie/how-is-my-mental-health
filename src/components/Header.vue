@@ -1,6 +1,6 @@
 <template>
   <div class="nav-bar-container">
-    <nav >
+    <nav>
       <div class="logo">Logo</div>
       <div class="links">
         <router-link to="/">Home</router-link>
@@ -8,9 +8,15 @@
         <router-link to="/about-us">About</router-link>
       </div>
       <div class="login-container">
-        <router-link to="/login" class="login">Login</router-link>
-        <router-link to="/sign-up" class="sign-up">Sign Up</router-link>
-
+        <router-link to="/login" class="login" v-if="!IsAuthenticated"
+          >Login</router-link
+        >
+        <router-link to="/#" class="login" v-if="IsAuthenticated"
+          >Dashboard</router-link
+        >
+        <router-link to="/sign-up" class="sign-up" v-if="!IsAuthenticated"
+          >Sign Up</router-link
+        >
       </div>
     </nav>
   </div>
@@ -18,32 +24,45 @@
 
 <script>
 export default {
-  name: 'Header',
-  props: {}
-}
+  name: "Header",
+  props: {},
+  data() {
+    return {
+      IsAuthenticated: false,
+    };
+  },
+  computed: {
+    },
+  created() {
+    console.log('hellow from created header');
+    if (localStorage.token) {
+      this.IsAuthenticated = true;
+    }
+  },
+};
 </script>
 
 <style scoped>
-.nav-bar-container{
+.nav-bar-container {
   width: 95%;
   margin: auto;
 }
-nav{
+nav {
   color: #4d566e;
-  font-family: 'Nunito', sans-serif;
-  font-weight: normal ;
+  font-family: "Nunito", sans-serif;
+  font-weight: normal;
   font-size: 1.2rem;
   padding-top: 1rem;
   display: flex;
   justify-content: space-between;
 }
 
-a{
+a {
   text-decoration: none;
 }
-a:hover{
+a:hover {
   color: white;
-  transition: all .4s ease;
+  transition: all 0.4s ease;
 }
 .links {
   display: flex;
@@ -51,19 +70,20 @@ a:hover{
   width: 35%;
   margin-right: 2rem;
 }
-.logo,.login-container{
+.logo,
+.login-container {
   width: 15%;
 }
-.logo{
+.logo {
   padding-left: 2rem;
   font-weight: 900;
   font-size: 1.3rem;
 }
-.login-container{
+.login-container {
   display: flex;
   justify-content: space-around;
 }
-.sign-up{
-  color:#f1b139 ;
+.sign-up {
+  color: #f1b139;
 }
 </style>

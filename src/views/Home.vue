@@ -38,6 +38,10 @@ export default {
   components: {
     Header,
   },
+  created(){
+    console.log('hello from created');
+    console.log(localStorage.token);
+  },
   beforeCreate() {
     console.log(this.$route.path);
     document.body.classList.add("body-home");

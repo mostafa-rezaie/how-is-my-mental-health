@@ -1,6 +1,6 @@
 <template>
   <div class="username-input ">
-    <input type="text" :name="inputName" :placeholder="placeHolder"
+    <input :type="inputType" :name="inputName" :placeholder="placeHolder" @input="$emit('input',$event.target.value)"
            class="username-input w-full bg-sec-1 p-2 rounded-lg text-white font-bold">
   </div>
 
@@ -12,6 +12,17 @@ export default {
   props: {
     inputName: String,
     placeHolder: String,
+    inputType:String,
+  },
+  data(){
+    return{
+      inputData:'',
+    }
+  },
+  methods:{
+    sendData(){
+      this.$emit('send-data')
+    }
   }
 }
 </script>
