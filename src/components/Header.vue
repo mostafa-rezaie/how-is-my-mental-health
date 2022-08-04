@@ -42,7 +42,9 @@ a{
   text-decoration: none;
 }
 a:hover{
-  color: white;
+  /*TODO:change*/
+  /*color: white;*/
+  color: #f1b139;
   transition: all .4s ease;
 }
 .links {
@@ -64,6 +66,7 @@ a:hover{
   justify-content: space-around;
 }
 .sign-up{
-  color:#f1b139 ;
+  /*TODO:change*/
+  /*color:#f1b139 ;*/
 }
 </style>

@@ -3,9 +3,9 @@
     <Header/>
     <div class="container text-center mt-8 mx-auto overflow-hidden">
       <div class="titles">
-        <div class="first-title text-lg ">How is my mental health</div>
-        <div class="quote text-8xl text-white font-bold">Calm yourself down</div>
-        <div class="second-title mt-3 text-sec-1">Take these test to evaluate your mental health</div>
+        <div class="first-title text-lg font-extrabold ">How is my mental health</div>
+        <div class="quote text-8xl text-black font-bold">Calm yourself down</div>
+        <div class="second-title mt-3 text-sec-1 font-extrbold">Take these test to evaluate your mental health</div>
       </div>
       <div class="button-container mt-8 flex max-w-5 m-auto justify-around">
         <button class="test-btn">Take a Test!</button>

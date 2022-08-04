@@ -16,7 +16,7 @@
           <user-input place-holder="Re-enter Password" input-name="password2"></user-input>
         </div>
         <div class="btn-container mb-10">
-          <button class="login-btn">Login!</button>
+          <button class="login-btn">Sign up!</button>
         </div>
       </div>
     </div>
