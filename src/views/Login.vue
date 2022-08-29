@@ -87,12 +87,12 @@ export default {
         .then((res) => {
           localStorage.token = res.token;
         });
-        var interval = setInterval(() => {
-          if (localStorage.token){
-            this.$router.push('/')
-            clearInterval(interval)
-          }
-        }, 1000);
+      var interval = setInterval(() => {
+        if (localStorage.token) {
+          this.$router.push("/");
+          clearInterval(interval);
+        }
+      }, 1000);
     },
   },
 };
