@@ -1,88 +1,84 @@
 <template>
   <div class="ghq-test-container">
     <div class="questions-container">
-      <div class="question" v-for="(question,index) in questions" :key="index">
-        <br>
-        {{ question.questionText }}
+      <div class="question" v-for="(question, index) in questions" :key="index">
+        <br />
+        <span>{{ question.qid }}.</span>
+        {{ question.title }}
         <div class="radio-group">
-          <p>this is the GHQ test</p>
           <label class="radio-container">
-            <input type="radio" value="1" :name="getName(question.questionNumber)" @change="onChange($event)">
+            <input
+              type="radio"
+              value="1"
+              :name="getName(question.qid)"
+              @change="onChange($event)"
+            />
             <span class="checkmark"></span>
             <span class="text-choice">1</span>
           </label>
           <label class="radio-container">
-            <input type="radio" value="2" :name="getName(question.questionNumber)" @change="onChange($event)">
+            <input
+              type="radio"
+              value="2"
+              :name="getName(question.qid)"
+              @change="onChange($event)"
+            />
             <span class="checkmark"></span>
             <span class="text-choice">2</span>
           </label>
           <label class="radio-container">
-            <input type="radio" value="3" :name="getName(question.questionNumber)" @change="onChange($event)">
+            <input
+              type="radio"
+              value="3"
+              :name="getName(question.qid)"
+              @change="onChange($event)"
+            />
             <span class="checkmark"></span>
             <span class="text-choice">3</span>
           </label>
           <label class="radio-container">
-            <input type="radio" value="4" :name="getName(question.questionNumber)" @change="onChange($event)">
+            <input
+              type="radio"
+              value="4"
+              :name="getName(question.qid)"
+              @change="onChange($event)"
+            />
             <span class="checkmark"></span>
             <span class="text-choice">4</span>
           </label>
         </div>
       </div>
-
     </div>
   </div>
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
-  name: 'GHQTest',
+  name: "GHQTest",
   props: {},
   data() {
     return {
-      testName: 'qhqTest',
-      questions: [
-        {
-          questionText: '1.how do you rate your mental health in genral?',
-          questionNumber: 1
-        },
-        {
-          questionText: '2.how do you rate your mental health in genral?',
-          questionNumber: 2
-        },
-        {
-          questionText: '3.how do you rate your mental health in genral?',
-          questionNumber: 3
-        },
-        {
-          questionText: '4.how do you rate your mental health in genral?',
-          questionNumber: 4
-        },
-        {
-          questionText: '5.how do you rate your mental health in genral?',
-          questionNumber: 5
-        },
-        {
-          questionText: '6.how do you rate your mental health in genral?',
-          questionNumber: 6
-        },
-      ],
+      testName: "qhqTest",
+      questions: [],
       answers: [],
-    }
+    };
   },
   methods: {
     getName(questionNumber) {
-      return this.testName + '' + questionNumber
+      return questionNumber;
     },
     onChange(event) {
-      let flag = 0
-      this.answers.forEach(item => {
+      let flag = 0;
+      this.answers.forEach((item) => {
         // console.log(item.questionId)
         if (item.questionId === event.target.name) {
           // console.log('repeat')
-          item.questionAns = event.target.value
-          flag = 1
+          item.questionAns = event.target.value;
+          flag = 1;
         }
-      })
+      });
 
       // for (let i in this.answers) {
       //   console.log(i)
@@ -92,12 +88,34 @@ export default {
       //   }
       // }
       if (flag == 0) {
-        this.answers.push({'questionId': event.target.name, 'questionAns': event.target.value})
-
+        this.answers.push({
+          questionId: event.target.name,
+          questionAns: event.target.value,
+        });
       }
-    }
-  }
-}
+    },
+  },
+  mounted() {
+    console.log("hello");
+    const options = {
+      url: "http://192.168.1.9:8000/tests-api/get-questions/s1",
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json;charset=UTF-8",
+        Authorization: "Token " + localStorage.getItem("token"),
+      },
+    };
+    // axios(options).then((res) => console.log(res.data));
+    axios(options)
+      .then((res) => res.data)
+      .then((res) => {
+        console.log(res);
+        this.questions = res;
+      });
+    // TODO:unauth access
+  },
+};
 </script>
 
 <style scoped>
