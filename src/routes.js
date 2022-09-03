@@ -8,7 +8,7 @@ import TakeTest from './views/TakeTest'
 import GHQTest from './views/tests/GHQTest'
 
 export const routes = [
-    {path: '', component: Home},
+    {path: '', component: Home ,name:'home'},
     {path: '/login', component: Login},
     {path: '/sign-up', component: SignUp},
     {path: '/forget-pass', component: ForgetPassword},
