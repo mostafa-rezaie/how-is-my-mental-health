@@ -72,26 +72,19 @@ export default {
     onChange(event) {
       let flag = 0;
       this.answers.forEach((item) => {
-        // console.log(item.questionId)
-        if (item.questionId === event.target.name) {
-          // console.log('repeat')
-          item.questionAns = event.target.value;
+        if (item.qid === event.target.name) {
+          item.answer = event.target.value;
           flag = 1;
         }
       });
-
-      // for (let i in this.answers) {
-      //   console.log(i)
-      //   if (i.questionId === event.target.name) {
-      //     i.questionAns = event.target.value
-      //     flag = 1
-      //   }
-      // }
       if (flag == 0) {
         this.answers.push({
-          questionId: event.target.name,
-          questionAns: event.target.value,
+          qid: event.target.name,
+          answer: event.target.value,
         });
+      }
+      if (this.questions.length == this.answers.length){
+        this.$emit('send-data',this.answers)
       }
     },
   },
