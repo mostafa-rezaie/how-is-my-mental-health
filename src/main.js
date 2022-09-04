@@ -22,7 +22,7 @@ Vue.component('fas', FontAwesomeIcon)
 import axios from 'axios'
 
 Vue.config.productionTip = false
-
+Vue.prototype.$host = 'http://192.168.1.9:8000/';
 Vue.use(VueRouter);
 const router = new VueRouter({
     routes,

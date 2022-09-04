@@ -6,6 +6,7 @@ import AboutUs from './views/AboutUs'
 import Tests from './views/Tests'
 import TakeTest from './views/TakeTest'
 import GHQTest from './views/tests/GHQTest'
+import Results from './views/Results'
 
 export const routes = [
     {path: '', component: Home ,name:'home'},
@@ -26,6 +27,7 @@ export const routes = [
                 name: 'ghqtest',
                 component: GHQTest
             }]
-    }
+    },
+    {path:'/results',component:Results , name:'results'}
 ]
 

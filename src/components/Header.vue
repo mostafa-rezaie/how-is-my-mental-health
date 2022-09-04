@@ -14,8 +14,8 @@
         <router-link to="/sign-up" class="right-element" v-if="!IsAuthenticated"
           >Sign Up</router-link
         >
-        <router-link to="/#" class="left-element" v-if="IsAuthenticated"
-          >Dashboard</router-link
+        <router-link to="/results" class="left-element" v-if="IsAuthenticated"
+          >Results</router-link
         >
         <div class="right-element" @click="logout" v-if="IsAuthenticated">
           <a href="#">Logout</a>
