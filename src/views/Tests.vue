@@ -25,7 +25,26 @@
         />
       </div>
     </div>
-
+    <div class="test-description">
+      <h2 class="test-header">
+        GHQ test:
+      </h2>
+      <div class="ghq-desc">
+        Screening Psychological Distress Helps Early Detection for People at
+        Risk of Mental Illness. the General Health Questionnaire (Ghq) Created
+        by Goldberg in 1972 Is a Tool Which Has Been Widely Used to Assess Such
+        Distress. the Ghq-12 Comprises 12 Questions Regarding the General Level
+        of Happiness, the Experience of Depressive and Anxiety Symptoms,
+        Perceived Stress, and Sleep Disturbance over the Previous 4 Weeks. Each
+        Item Has a 4-Point Response Scale. In most studies, the GHQ-12 has been
+        used as a unidimensional measure. Some factor analysis studies found
+        that GHQ-12 measures three domains including social dysfunction,
+        anxiety, and loss of confidence. However, other studies have identified
+        only two factors depression and social dysfunction and a further study
+        argued that separate domains do not contribute to identifying vulnerable
+        population groups or the factors associated with distress.
+      </div>
+    </div>
     <div class="modal-container">
       <Modal
         @toggle-modal="toggleModal"
@@ -58,10 +77,10 @@ export default {
           id: 1,
           name: "GHQ",
           description:
-            "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias ametaperiam aspernatur abeatae consequuntur dicta maiores nesciunt quisquam unde.",
-          numQuestion: "90",
-          algorithms: "SVM, Machine learning",
-          duration: "10",
+            "A self-administered questionnaire for identifying non-psychotic and minor psychiatric disorders. A widely-used first step for clinicians wishing to screen individuals for minor psychiatric disorders in the general population and within the community or non-psychiatric clinical settings, such as primary care or general medical out-patients.",
+          numQuestion: "12",
+          algorithms: "None",
+          duration: "2",
         },
         {
           id: 2,
@@ -120,7 +139,18 @@ export default {
   font-size: 1.2rem;
   margin: 2rem auto 0 auto;
 }
-
+.test-description{
+  width: 80%;
+  color: white;
+  font-size: 1.2rem;
+  margin: 2rem auto 0 auto;
+}
+.test-header{
+  font-size: 2rem;
+  font-weight: 700;
+  border-left: 5px solid #f1b139;
+  padding-left: 1rem;
+}
 .card-list {
   display: flex;
   padding: 3rem;

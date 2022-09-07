@@ -14,7 +14,7 @@
               @change="onChange($event)"
             />
             <span class="checkmark"></span>
-            <span class="text-choice">1</span>
+            <span class="text-choice">Better than usual</span>
           </label>
           <label class="radio-container">
             <input
@@ -24,7 +24,7 @@
               @change="onChange($event)"
             />
             <span class="checkmark"></span>
-            <span class="text-choice">2</span>
+            <span class="text-choice">Same as usual</span>
           </label>
           <label class="radio-container">
             <input
@@ -34,7 +34,7 @@
               @change="onChange($event)"
             />
             <span class="checkmark"></span>
-            <span class="text-choice">3</span>
+            <span class="text-choice">Less than usual</span>
           </label>
           <label class="radio-container">
             <input
@@ -44,7 +44,7 @@
               @change="onChange($event)"
             />
             <span class="checkmark"></span>
-            <span class="text-choice">4</span>
+            <span class="text-choice">Much less than usual</span>
           </label>
         </div>
       </div>
@@ -91,7 +91,7 @@ export default {
   mounted() {
     console.log("hello");
     const options = {
-      url: "http://192.168.1.9:8000/tests-api/get-questions/s1",
+      url: "http://192.168.1.9:8000/tests-api/get-questions/ghq",
       method: "GET",
       headers: {
         Accept: "application/json",
@@ -139,6 +139,7 @@ label {
 }
 
 .text-choice {
+  font-size: 1.2rem;
 }
 
 .radio-container input {
