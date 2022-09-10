@@ -28,7 +28,7 @@ export default {
   cursor: pointer;
   position: relative;
   flex-direction: column;
-  height: 350px;
+  height: 370px;
   width: 100%;
   min-width: 100px;
   padding: .5rem 1.5rem .5rem 1rem;
@@ -41,7 +41,8 @@ export default {
 .card:hover {
   transform: translateY(-1rem);
 }
-
+.card-container{
+}
 
 
 </style>

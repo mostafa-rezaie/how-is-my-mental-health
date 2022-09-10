@@ -51,7 +51,7 @@ export default {
       };
       axios(options).then((res) => {
         if (res.status == 204) {
-          this.$router.go();
+          this.$router.push('/login');
         }
       });
     },

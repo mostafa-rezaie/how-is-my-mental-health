@@ -74,8 +74,8 @@ export default {
         password: "",
         username: "",
         password2: "",
-        gender: "",
-        date_of_birth: "",
+        gender: "M",
+        date_of_birth: "1998-1-1",
       },
       IsAuth: true,
     };

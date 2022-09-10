@@ -1,16 +1,21 @@
 <template>
   <div class="modal" v-show="getModalState">
     <div class="modal-content font-bold text-xl">
-      <p>You are about to take the {{ testName }} test</p>
-      <p>
-        This test take about {{ testDuration }} minutes with
-        {{ questionCount }} questions
-      </p>
+      <div v-if="isAuthenticated">
+        <p>You are about to take the {{ testName }} test</p>
+        <p>
+          This test take about {{ testDuration }} minutes with
+          {{ questionCount }} questions
+        </p>
+      </div>
+      <div v-else>You need to Login First</div>
       <div class="btn-container">
         <button class="btn-alert mr-4" @click="toggleModal">Cancel</button>
-        <button class="btn ml-4">
-          <router-link :to="{ name: 'ghqtest' }">Start the test</router-link>
-          
+        <button class="btn ml-4" v-if="isAuthenticated">
+          <router-link :to="{ name: testUrl }">Start the test</router-link>
+        </button>
+        <button class="btn ml-4" v-else>
+          <router-link :to="{ name: 'login' }">Login</router-link>
         </button>
       </div>
     </div>
@@ -21,7 +26,9 @@
 export default {
   name: "Modal",
   data() {
-    return {};
+    return {
+      url: "ghqtest",
+    };
   },
   props: {
     isVisible: {
@@ -31,6 +38,10 @@ export default {
     testName: {
       type: String,
       default: "GHQ",
+    },
+    testUrl: {
+      type: String,
+      default: "ghqtest",
     },
     testDuration: {
       type: String,
@@ -49,6 +60,16 @@ export default {
   computed: {
     getModalState() {
       return this.isVisible;
+    },
+    getUrl() {
+      return this.url;
+    },
+    isAuthenticated() {
+      if (localStorage.token) {
+        return true;
+      }else{
+        return false;
+      }
     },
   },
 };
