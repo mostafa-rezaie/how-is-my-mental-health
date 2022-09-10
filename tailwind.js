@@ -7,7 +7,8 @@ module.exports = {
             'sec-2-darker':'#d69e36',
             'white': 'white',
             'black':'black',
-            'red':'red'
+            'red':'red',
+            'red-400':'#ff3333'
         },
         maxWidth:{
             '5': '20rem'

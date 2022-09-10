@@ -43,8 +43,15 @@
           <user-input-select @change="onChange" />
           <input-date v-model="signUpData.date_of_birth" />
         </div>
-        <div class="btn-container mb-10">
+        <div class="btn-container mb-5">
           <button class="login-btn" @click="signUpUser">Sign Up</button>
+        </div>
+        <div class="error-massage mb-4 text-red-400 font-bold" v-show="errorMassage.length != 0">
+          <div v-for="error in errorMassage" :key="error.index">
+            <li>
+              {{ error }}
+            </li>
+          </div>
         </div>
       </div>
     </div>
@@ -78,6 +85,8 @@ export default {
         date_of_birth: "1998-1-1",
       },
       IsAuth: true,
+      errorMassage: [
+      ],
     };
   },
   methods: {
@@ -96,18 +105,25 @@ export default {
           Accept: "application/json",
           "Content-Type": "application/json;charset=UTF-8",
         },
-        data: this.signUpData
+        data: this.signUpData,
       };
       axios(options)
         // .then((res) => res.data)
         .then((res) => {
           console.log(res);
-          if (res.status==201){
-            this.$router.push('/login')
+          if (res.status == 201) {
+            this.$router.push("/login");
           }
-        } )
+        })
         .catch((error) => error.response.data)
-        .then(res=>console.log(res));
+        .then((res) => {
+          console.log(res);
+          Object.keys(res).forEach((key) => {
+            console.log(res[key]);
+            var error = res[key];
+            this.errorMassage.push(error[0]);
+          });
+        });
       // var interval = setInterval(() => {
       //   if (localStorage.token) {
       //     this.$router.push("/");
@@ -160,5 +176,8 @@ export default {
 .inputs div {
   margin-bottom: 0.5rem;
   width: 100%;
+}
+.error-massage{
+  width: 75%;
 }
 </style>
