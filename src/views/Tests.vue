@@ -2,17 +2,17 @@
   <div>
     <Header />
     <div class="tests-text">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquam amet
-      blanditiis consequatur culpa cum dolor doloribus, eaque exercitationem
-      fuga illo, labore laboriosam laudantium libero magnam molestias mollitia
-      nam necessitatibus nostrum obcaecati omnis perspiciatis praesentium quae
-      quam qui quidem quisquam quod reiciendis repellat similique te Lorem ipsum
-      dolor sit amet, consectetur adipisicing elit. Alias amet aperiam
-      aspernatur at beatae consequuntur dicta maiores nesciunt quisquam unde.
+      Here are the  test that you can take. currently you can choose between this three test: <br>
+      1.General Health Questionnaire(or GHQ) <br> 
+      2.Big Five Personality(or BFP) <br> 
+      3.working burning out
+      <br>
+      You can find additional information about each test at the end of the page 
     </div>
 
     <div class="card-list">
       <div
+        class="card-wrapper"
         v-for="(test, id) in tests"
         @click="clickHandler(test.name, test.numQuestion, test.duration)"
         :key="id"
@@ -26,9 +26,7 @@
       </div>
     </div>
     <div class="test-description">
-      <h2 class="test-header">
-        GHQ test:
-      </h2>
+      <h2 class="test-header">GHQ </h2>
       <div class="ghq-desc">
         Screening Psychological Distress Helps Early Detection for People at
         Risk of Mental Illness. the General Health Questionnaire (Ghq) Created
@@ -45,6 +43,27 @@
         population groups or the factors associated with distress.
       </div>
     </div>
+    <div class="test-description">
+      <h2 class="test-header">BIG FIVE PERSONALITY </h2>
+      <div class="ghq-desc">
+        The big five personality traits are the best accepted and most commonly
+        used model of personality in academic psychology. If you take a college
+        course in personality psychology, this is what you will learn about. The
+        big five come from the statistical study of responses to personality
+        items. Using a technique called factor analysis researchers can look at
+        the responses of people to hundreds of personality items and ask the
+        question "what is the best was to summarize an individual?". This has
+        been done with many samples from all over the world and the general
+        result is that, while there seem to be unlimited personality variables,
+        five stand out from the pack in terms of explaining a lot of a persons
+        answers to questions about their personality: extraversion, neuroticism,
+        agreeableness, conscientiousness and openness to experience. The
+        big-five are not associated with any particular test, a variety of
+        measures have been developed to measure them. This test uses the
+        Big-Five Factor Markers from the International Personality Item Pool,
+        developed by Goldberg (1992).
+      </div>
+    </div>
     <div class="modal-container">
       <Modal
         @toggle-modal="toggleModal"
@@ -52,6 +71,7 @@
         :question-count="questionCount"
         :test-name="testName"
         :test-duration="testDuration"
+        :test-url="testUrl"
       />
     </div>
   </div>
@@ -86,10 +106,10 @@ export default {
           id: 2,
           name: "BIG FIVE PERSONALITY",
           description:
-            "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias ametaperiam aspernatur abeatae consequuntur dicta maiores nesciunt quisquam unde.",
-          numQuestion: "85",
-          algorithms: "SVM, Machine learning",
-          duration: "15",
+            "The big five personality traits are the best accepted and most commonly used model of personality in academic psychology. If you take a college course in personality psychology, this is what you will learn about. The big five come from the statistical study of responses to personality items.  ",
+          numQuestion: "50",
+          algorithms: "None",
+          duration: "10-15",
         },
         {
           id: 3,
@@ -100,20 +120,21 @@ export default {
           algorithms: "SVM, Machine learning",
           duration: "20",
         },
-        {
-          id: 4,
-          name: "HUMOR STYLES",
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias ametaperiam aspernatur abeatae consequuntur dicta maiores nesciunt quisquam unde.",
-          numQuestion: "75",
-          algorithms: "SVM, Machine learning",
-          duration: "25",
-        },
+        // {
+        //   id: 4,
+        //   name: "HUMOR STYLES",
+        //   description:
+        //     "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias ametaperiam aspernatur abeatae consequuntur dicta maiores nesciunt quisquam unde.",
+        //   numQuestion: "75",
+        //   algorithms: "SVM, Machine learning",
+        //   duration: "25",
+        // },
       ],
       modalShow: false,
       questionCount: "0",
       testDuration: "0",
       testName: "",
+      testUrl: "",
     };
   },
   methods: {
@@ -121,6 +142,11 @@ export default {
       this.questionCount = questionCount;
       this.testDuration = testDuration;
       this.testName = testName;
+      if (testName == "GHQ") {
+        this.testUrl = "ghqtest";
+      } else if (testName == "BIG FIVE PERSONALITY") {
+        this.testUrl = "bfptest";
+      }
       this.toggleModal();
       // console.log('clicked');
       // this.$refs.modal.toggleModal();
@@ -139,13 +165,13 @@ export default {
   font-size: 1.2rem;
   margin: 2rem auto 0 auto;
 }
-.test-description{
+.test-description {
   width: 80%;
   color: white;
   font-size: 1.2rem;
   margin: 2rem auto 0 auto;
 }
-.test-header{
+.test-header {
   font-size: 2rem;
   font-weight: 700;
   border-left: 5px solid #f1b139;
@@ -154,6 +180,7 @@ export default {
 .card-list {
   display: flex;
   padding: 3rem;
+  flex-grow: 1;
 }
 
 .card-list a div {
@@ -163,5 +190,8 @@ export default {
 .card-list :not(:first-child) {
   /*margin-left: -1rem;*/
   /*background-color: red;*/
+}
+.card-wrapper {
+  width: 33%;
 }
 </style>

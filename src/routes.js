@@ -6,11 +6,12 @@ import AboutUs from './views/AboutUs'
 import Tests from './views/Tests'
 import TakeTest from './views/TakeTest'
 import GHQTest from './views/tests/GHQTest'
+import BFPTTest from './views/tests/BFPTTest.vue'
 import Results from './views/Results'
 
 export const routes = [
     {path: '', component: Home ,name:'home'},
-    {path: '/login', component: Login},
+    {path: '/login', component: Login , name:'login'},
     {path: '/sign-up', component: SignUp},
     {path: '/forget-pass', component: ForgetPassword},
     {path: '/about-us', component: AboutUs},
@@ -26,7 +27,14 @@ export const routes = [
                 path: 'GHQ',
                 name: 'ghqtest',
                 component: GHQTest
-            }]
+            },
+            {
+                path: 'BFP',
+                name: 'bfptest',
+                component: BFPTTest
+            },
+
+        ]
     },
     {path:'/results',component:Results , name:'results'}
 ]

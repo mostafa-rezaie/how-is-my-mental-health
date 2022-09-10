@@ -28,6 +28,8 @@ export default {
     return {
       answers: [],
       isAnsweredAll: false,
+      questionnaireId:'',
+      questionnaireName:this.$router.currentRoute.name
     };
   },
   methods: {
@@ -49,7 +51,7 @@ export default {
             Authorization: "Token " + localStorage.getItem("token"),
           },
           data: {
-            questionnaireId: "3",
+            questionnaireId: this.questionnaireId,
             data: this.answers,
           },
         };
@@ -61,6 +63,20 @@ export default {
         });
       }
     },
+  },
+  computed: {
+    getQuestionnareName(){
+      return this.$router.currentRoute.name 
+    }
+  },
+  mounted() {
+    if (this.questionnaireName == 'ghqtest'){
+      this.questionnaireId = '5'
+    }else{
+      if (this.questionnaireName == 'bfptest'){
+        this.questionnaireId = '6'
+      }
+    }
   },
 };
 </script>
