@@ -1,7 +1,8 @@
 <template>
   <div>
     <Header />
-    <table class="mt-10">
+    <div class="text-center mt-10 font-bold text-sec-2">GHQ Results</div>
+    <table class="mt-7">
       <tr>
         <th>Questionnaire</th>
         <th>Answered Questions</th>
@@ -9,11 +10,30 @@
         <th>Score</th>
         <th>Date</th>
       </tr>
-      <tr v-for="(item, index) in userResults" :key="index">
+      <tr v-for="(item, index) in ghqResults" :key="index">
         <th>{{ item.questionnaire }}</th>
         <th>{{ item.num_of_question_answered }}</th>
         <!-- <th>{{ item.duration }}</th> -->
         <th>{{ item.score }}</th>
+        <th>{{ item.created }}</th>
+      </tr>
+    </table>
+    <div class="text-center mt-16 font-bold text-sec-2">Big Five Personality Results</div>
+    <table class="mt-7">
+      <tr>
+        <th>Questionnaire</th>
+        <th>Answered Questions</th>
+        <!-- <th>Duration</th> -->
+        <th>Score</th>
+        <th>Description</th>
+        <th>Date</th>
+      </tr>
+      <tr v-for="(item, index) in bfpResults" :key="index">
+        <th>{{ item.questionnaire }}</th>
+        <th>{{ item.num_of_question_answered }}</th>
+        <!-- <th>{{ item.duration }}</th> -->
+        <th>{{ item.score }}</th>
+        <th>{{ item.description }}</th>
         <th>{{ item.created }}</th>
       </tr>
     </table>
@@ -32,6 +52,8 @@ export default {
   data() {
     return {
       userResults: [],
+      ghqResults :[],
+      bfpResults:[],
     };
   },
   props: {},
@@ -51,7 +73,22 @@ export default {
       .then((res) => {
         console.log(res);
         this.userResults = res;
+        res.forEach(element => {
+          if (element.questionnaire == 'GHQ'){
+            this.ghqResults.push(element)
+          }
+          if (element.questionnaire == 'BFP'){
+            this.bfpResults.push(element)
+          }
+          
+        });
       });
+
+  },
+  methods: {
+    divideResults(){
+      console.log('hey');
+    }
   },
 };
 </script>
