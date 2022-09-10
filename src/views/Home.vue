@@ -12,7 +12,7 @@
         </div>
       </div>
       <div class="button-container mt-8 flex max-w-5 m-auto justify-around">
-        <button class="test-btn">Take a Test!</button>
+        <button class="test-btn" @click="toTests">Take a Test! </button>
         <!-- <button class="login-btn">Login</button> -->
       </div>
     </div>
@@ -48,6 +48,11 @@ export default {
   },
   destroyed() {
     document.body.classList.remove("body-home");
+  },
+  methods: {
+    toTests(){
+      this.$router.push('/tests')
+    }
   },
 };
 </script>

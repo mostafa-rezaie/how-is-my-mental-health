@@ -113,12 +113,12 @@ export default {
         },
         {
           id: 3,
-          name: "CHARACTER STRENGTHS",
+          name: "EMPLOYEE BURNOUT",
           description:
             "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias ametaperiam aspernatur abeatae consequuntur dicta maiores nesciunt quisquam unde.",
           numQuestion: "80",
           algorithms: "SVM, Machine learning",
-          duration: "20",
+          duration: "3",
         },
         // {
         //   id: 4,
